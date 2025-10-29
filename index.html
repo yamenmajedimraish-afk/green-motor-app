@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Meter App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside>
+      <h2>Green Meter App</h2>
+      <p>Carbon Emissions Dashboard</p>
+
+      <h3>Inputs: Activity Data</h3>
+      <div class="input-group">
+        <label>Cars – Distance (km/year)</label>
+        <input type="number" id="cars" value="130000">
+      </div>
+      <div class="input-group">
+        <label>Trucks – Distance (km/year)</label>
+        <input type="number" id="trucks" value="150000">
+      </div>
+      <div class="input-group">
+        <label>Buses – Distance (km/year)</label>
+        <input type="number" id="buses" value="80000">
+      </div>
+      <div class="input-group">
+        <label>Forklifts – Hours/year</label>
+        <input type="number" id="forklifts" value="1200">
+      </div>
+      <div class="input-group">
+        <label>Cargo Planes – Flight hours/year</label>
+        <input type="number" id="planes" value="430">
+      </div>
+      <div class="input-group">
+        <label>Plane Load Factor (%)</label>
+        <input type="number" id="loadFactor" value="80">
+      </div>
+      <div class="input-group">
+        <label>Office Lighting (kWh/year)</label>
+        <input type="number" id="lighting" value="40000">
+      </div>
+      <div class="input-group">
+        <label>Heating (kWh-th/year)</label>
+        <input type="number" id="heating" value="20000">
+      </div>
+      <div class="input-group">
+        <label>Cooling (kWh/year)</label>
+        <input type="number" id="cooling" value="30000">
+      </div>
+      <div class="input-group">
+        <label>Computing (kWh/year)</label>
+        <input type="number" id="computing" value="12000">
+      </div>
+      <div class="input-group">
+        <label>Subcontractors – Total (tons CO₂e/year)</label>
+        <input type="number" id="subcontractors" value="45">
+      </div>
+
+      <h3>Adjustments</h3>
+      <div class="input-group">
+        <label>EV Share for Cars (%)</label>
+        <input type="number" id="evShare" value="30">
+      </div>
+      <div class="input-group">
+        <label>KM Reduction for Cars (%)</label>
+        <input type="number" id="kmReduction" value="10">
+      </div>
+
+      <button onclick="calculate()">Calculate</button>
+    </aside>
+
+    <main>
+      <div class="charts">
+        <canvas id="pieChart"></canvas>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div id="results"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
